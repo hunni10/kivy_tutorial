@@ -14,7 +14,7 @@ class PongPaddle(Widget):
     score = NumericProperty(0)
 
     def bounce_ball(self, ball):
-        if self.collide_widget(ball):
+        if self.collide_widget(ball) and (self.center_x-ball.center_x)*ball.velocity_x > 0:
             speedup = 1.05
             offset = 0.02 * Vector(0, ball.center_y-self.center_y)
             ball.velocity_x *= -1
